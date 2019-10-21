@@ -25,7 +25,6 @@ def images(request):
     serializer = ImageSerializer(images, many=True)
     return Response(serializer.data)
 
-
 @api_view(['POST',])
 @authentication_classes([TokenAuthentication])
 @permission_classes((IsAuthenticated,))
