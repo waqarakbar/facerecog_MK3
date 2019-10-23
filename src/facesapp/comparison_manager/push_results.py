@@ -13,22 +13,20 @@ def push_results(request):
         # print(match.compared_image) # compared with
         # print('------------------')
         this_match = {
-            'match_id': match.id,
+            'comparison_id': match.id,
             'image_id': match.image.id,
-            'source': match.image.source,
-            'source_id': match.image.source_id,
-            'matches': {
-                'image_id': match.compared_image.id,
-                'source': match.compared_image.source,
-                'source_id': match.compared_image.source_id
-            },
+            'attachment_source': match.image.source,
+            'attachment_id': match.image.source_id,
+            'matched_image_id': match.compared_image.id,
+            'matched_attachment_source': match.compared_image.source,
+            'matched_attachment_id': match.compared_image.source_id,
             'face_distance': match.face_distance
         }
         #print(this_match)
         matches_list.append(this_match)
 
 
-    #return JsonResponse(matches_list, status=200, safe=False)
+    return JsonResponse(matches_list, status=200, safe=False)
     return JsonResponse({
         'message': 'Pending matches sent to server'
     }, status=200)
