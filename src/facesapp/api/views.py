@@ -49,7 +49,9 @@ def new_image(request):
 
         image.save()
 
-        return JsonResponse(serializer.data, status=201)
+        return JsonResponse({
+            'message': 'Image received successfully'
+        }, status=200)
 
     return JsonResponse(serializer.errors, status=400)
 
