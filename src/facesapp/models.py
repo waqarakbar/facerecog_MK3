@@ -16,6 +16,7 @@ class Image(models.Model):
         default=1
     )
     source_id = models.BigIntegerField()
+    attachment_id = models.BigIntegerField()
     title = models.CharField(max_length=255, null=True)
     path = models.ImageField()
     features_encoding = models.BinaryField(null=True)
