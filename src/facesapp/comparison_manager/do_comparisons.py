@@ -27,6 +27,9 @@ def do_comparisons(request):
         # of the current_image, then this current_image will be skipped in next cycle
         comp_images = ImageModel.objects.filter(id__gt=current_img.current_comparison_id, id__lte=current_img.compare_till_id).exclude(source_id=current_img.source_id)[:10]
 
+        print(current_img)
+        print(comp_images)
+
         # loop the known images (comp_images) and compare each with current_image (unknown)
         last_compared_id = 0
         for comp_curr_img in comp_images:
@@ -62,7 +65,7 @@ def do_comparisons(request):
         # update the current_comparison_id of original image (current_image)
         current_img.current_comparison_id = last_compared_id
         current_img.save()
-        print(current_img)
+        # print(current_img)
 
     return JsonResponse({
         'message': 'Current cycle completed'
