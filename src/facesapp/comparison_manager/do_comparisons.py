@@ -25,7 +25,7 @@ def do_comparisons(request):
         # apply some limit to keep the things cool
         # each iteration will increase current_comparison_id and once it is equal to compare_till_id
         # of the current_image, then this current_image will be skipped in next cycle
-        comp_images = ImageModel.objects.filter(id__gt=current_img.current_comparison_id, id__lte=current_img.compare_till_id)[:10]
+        comp_images = ImageModel.objects.filter(id__gt=current_img.current_comparison_id, id__lte=current_img.compare_till_id).exclude(source_id=current_img.source_id)[:10]
 
         # loop the known images (comp_images) and compare each with current_image (unknown)
         last_compared_id = 0

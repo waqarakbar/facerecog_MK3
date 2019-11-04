@@ -16,10 +16,12 @@ def push_results(request):
             'comparison_id': match.id,
             'image_id': match.image.id,
             'attachment_source': match.image.source,
-            'attachment_id': match.image.source_id,
+            'source_entity_id': match.image.source_id,
+            'attachment_id': match.image.attachment_id,
             'matched_image_id': match.compared_image.id,
             'matched_attachment_source': match.compared_image.source,
-            'matched_attachment_id': match.compared_image.source_id,
+            'matched_source_entity_id': match.compared_image.source_id,
+            'matched_attachment_id': match.compared_image.attachment_id,
             'face_distance': match.face_distance
         }
         #print(this_match)
