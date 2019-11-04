@@ -5,7 +5,7 @@ import face_recognition
 from django.conf import settings
 from django.http import JsonResponse
 
-def do_comparisons(request):
+def do_comparisons():
     # get 10 images which have not been fully processed (unknown images) - compared_till_id > current_comparison_id
     images = ImageModel.objects.filter(compare_till_id__gt=F('current_comparison_id'))[:10]
 

@@ -4,7 +4,7 @@ import requests
 import json
 from django.conf import settings
 
-def push_results(request):
+def push_results():
     # push the result from comparisons table to App server
     matches = Comparison.objects.filter(sent_back=0)[:10]
     # print(matches)
