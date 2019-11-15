@@ -18,7 +18,7 @@ class Image(models.Model):
     source_id = models.BigIntegerField()
     attachment_id = models.BigIntegerField()
     title = models.CharField(max_length=255, null=True)
-    path = models.ImageField()
+    path = models.ImageField(max_length=500)
     features_encoding = models.BinaryField(null=True)
     compare_till_id = models.BigIntegerField(default=0)
     current_comparison_id = models.BigIntegerField(default=0)
